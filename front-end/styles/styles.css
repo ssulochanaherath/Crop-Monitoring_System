@@ -1,0 +1,101 @@
+:root {
+    --background-color: #f0f0f0;
+}
+
+#dashboard-section {
+    background: var(--background-color);
+    width: 100%;
+    height: 94vh;
+    overflow-x: hidden;
+}
+
+#field-section {
+    background: var(--background-color);
+    width: 100%;
+    height: 94vh;
+    overflow-x: hidden;
+}
+
+#crop-section {
+    background: var(--background-color);
+    width: 100%;
+    height: 94vh;
+    overflow-x: hidden;
+}
+
+#staff-section {
+    background: var(--background-color);
+    width: 100%;
+    height: 94vh;
+    overflow-x: hidden;
+}
+
+#monitoring-section {
+    background: var(--background-color);
+    width: 100%;
+    height: 94vh;
+    overflow-x: hidden;
+}
+
+
+#vehicle-section {
+    background: var(--background-color);
+    width: 100%;
+    height: 94vh;
+    overflow-x: hidden;
+}
+
+#equipment-section {
+    background: var(--background-color);
+    width: 100%;
+    height: 94vh;
+    overflow-x: hidden;
+}
+
+.section-header {
+    margin-top: 30px;
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+.btn{
+    transition: 0.3s;
+}
+
+.btn:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.form-card {
+    background-clip: padding-box;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.row-bordered {
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #22b671;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #22b671;
+}
+
+@media (max-width:780px) {
+    .form-card {
+        margin-bottom: 20px;
+    }
+}

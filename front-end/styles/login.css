@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Parkinsans", sans-serif;
+  background-color: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.login-container {
+  width: 1200px;
+  height: 600px;
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.form-section {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group i {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #777;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 40px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-group select{
+  width: 100%;
+  padding: 10px 40px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-group select:focus{
+  outline: none;
+  border-color: #28bba2;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #28bba2;
+}
+
+#show-register{
+  font-weight: 500;
+  color: #28bba2c7;
+}
+
+#show-login{
+  font-weight: 500;
+  color: #28bba2c7;
+}
+
+#btn-login {
+  width: 100%;
+  padding: 10px;
+  background-color: #28bba2;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#btn-register {
+  width: 100%;
+  padding: 10px;
+  background-color: #28bba2;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#btn-login:hover {
+  background-color: #28bba2c7;
+}
+
+#btn-register:hover {
+  background-color: #28bba2c7;
+}
+
+.link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.link a {
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link a:hover {
+  text-decoration: underline;
+}
+
+.image-section {
+  flex: 1;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-section img {
+  max-width: 100%;
+  height: auto;
+}
+
+.hidden {
+  display: none;
+}

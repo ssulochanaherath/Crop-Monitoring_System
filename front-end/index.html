@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Shadow</title>
+  <!-- normalize css -->
+  <link rel="stylesheet" href="assets/normalize.css">
+  <!-- font-awesome-css -->
+  <link rel="stylesheet" href="assets/fontawesome-free-6.5.1-web/css/all.min.css">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- animate css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <!-- login-custome-styles -->
+  <link rel="stylesheet" href="styles/login.css">
+  <!-- dashboard-css -->
+  <link rel="stylesheet" href="styles/dashboard.css">
+  <!-- custome styles -->
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+  <!-- login-section -->
+  <section id="login-section" class="section">
+    <div class="login-container">
+      <div class="form-section">
+        <div id="login-form">
+          <h2>Green Shadow Login</h2>
+          <form>
+            <div class="input-group">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="Email" id="login_email">
+            </div>
+            <div class="input-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Password" id="login_password">
+            </div>
+            <button type="submit" id="btn-login" onclick="userLogin()">Login</button>
+            <p class="link">
+              Don't have an account? <a id="show-register">Register</a>
+            </p>
+          </form>
+        </div>
+  
+        <div id="register-form" class="hidden">
+          <h2>Green Shadow Register</h2>
+          <form>
+            <div class="input-group">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="Email" id="register_email" required>
+            </div>
+            <div class="input-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Password" id="register_password" required>
+            </div>
+            <div class="input-group">
+              <i class="fas fa-user"></i>
+              <select class="form-control mb-4 shadow-none" id="register_role">
+                <option value="" selected>Select a Role</option>
+                  <option value="ADMINISTRATIVE">Administrative</option>
+                  <option value="MANAGER">Manager</option>
+                  <option value="SCIENTIST">Scientist</option>
+              </select>
+            </div>
+            <button type="submit" id="btn-register" onclick="signUp()">Register</button>
+            <p class="link">
+              Already have an account? <a id="show-login">Login</a>
+            </p>
+          </form>
+        </div>
+      </div>
+  
+      <div class="image-section">
+        <img src="assets/images/letter-z-agriculture-logo-farming-logotype-symbol-template_754537-6455.jpg" alt="Background Image">
+      </div>
+    </div>
+  </section>
+
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary bg-c-green section" id="navbar" style="display: none;">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="color: #ffffff;" href="#"><i class="fa-solid fa-leaf" style="color: #ffffff;"></i>Green Shadow</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <span class="nav-link" aria-current="page" id="nav-dashboard" style="cursor: pointer; color: #16325B; font-weight: 600;">Dashboard</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link" id="nav-field" style="cursor: pointer; color: #16325B; font-weight: 600;">Field</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link" id="nav-crop" style="cursor: pointer; color: #16325B; font-weight: 600;">Crop</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link" id="nav-staff" style="cursor: pointer; color: #16325B; font-weight: 600;">Staff</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link" id="nav-monitor-log" style="cursor: pointer; color: #16325B; font-weight: 600;">Monitoring Log</soan>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link" id="nav-vehicle" style="cursor: pointer; color: #16325B; font-weight: 600;">Vehicle</span>
+          </li>
+          <li class="nav-item">
+            <span class="nav-link" id="nav-equipment" style="cursor: pointer; color: #16325B; font-weight: 600;">Equipment</span>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <button class="btn btn-danger" type="submit"><i class="fa-solid fa-right-from-bracket"
+              style="color: #ffffff;"></i>Logout</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard -->
+  <section id="dashboard-section" class="animate__animated animate__fadeIn" class="section">
+    <h1 class="text-start section-header"><i class="fab fa-delicious f-left"></i>Dashboard</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-xl-3 mb-3">
+          <div class="card bg-c-blue order-card">
+            <div class="card-block">
+              <h6 class="m-b-20">Number Of Fields</h6>
+              <h2 class="text-right"><i class="fab fa-delicious f-left"></i><span>486</span></h2>
+              <p class="m-b-0">Used Fields<span class="f-right">351</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 mb-3">
+          <div class="card bg-c-green order-card">
+            <div class="card-block">
+              <h6 class="m-b-20">Number Of Staff</h6>
+              <h2 class="text-right"><i class="fa-solid fa-people-group f-left"></i><span>486</span></h2>
+              <p class="m-b-0">Used Staff<span class="f-right">351</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 mb-3">
+          <div class="card bg-c-yellow order-card">
+            <div class="card-block">
+              <h6 class="m-b-20">Number Of Vehicles</h6>
+              <h2 class="text-right"><i class="fa-solid fa-truck f-left"></i><span>486</span></h2>
+              <p class="m-b-0">Used Vehicles<span class="f-right">351</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 mb-3">
+          <div class="card bg-c-pink order-card">
+            <div class="card-block">
+              <h6 class="m-b-20">Number Of Equipments</h6>
+              <h2 class="text-right"><i class="fa-solid fa-trowel f-left"></i><span>486</span></h2>
+              <p class="m-b-0">Used Equipments<span class="f-right">351</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="img-div">
+        <img src="assets/images/green-shadow-high-resolution-logo.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- Field -->
+  <section id="field-section" class="section">
+    <div class="container-fluid light-style flex-grow-1 container-p-y">
+      <h1 class="text-start section-header animate__animated animate__backInLeft duration-4s">
+        <i class="fab fa-delicious f-left"></i>Field
+      </h1>
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <!-- Form Section -->
+          <div class="form-card overflow-hidden animate__animated animate__fadeIn duration-4s">
+
+            <div class="card-body">
+              <div class="form-group ">
+                <label class="form-label">Field Name</label>
+                <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter field name" id="field_name">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Field Location (Coordinate)</label>
+                <input type="number" class="form-control mb-4 shadow-none" placeholder="Enter GPS coordinates" id="field_location_x">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Field Location (Coordinate)</label>
+                <input type="number" class="form-control mb-4 shadow-none" placeholder="Enter GPS coordinates" id="field_location_y">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Extent Size (sq. m)</label>
+                <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter extent size in sq. m" id="field_size">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Field Image 1</label>
+                <input type="file" class="form-control mb-4 shadow-none" accept="image/*" id="field_image1">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Field Image 2</label>
+                <input type="file" class="form-control mb-4 shadow-none" accept="image/*" id="field_image2">
+              </div>
+              <div class="text-right mt-3">
+                <button type="button" class="btn btn-warning" onclick="saveField()">Save</button>
+                <button type="button" class="btn btn-primary" onclick="updateFields()">Update</button>
+                <button type="button" class="btn btn-info" id="clearBtn" onclick="clearFields()">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 col-sm-12">
+          <!-- Table Section -->
+          <div class="container animate__animated animate__fadeIn">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Field Image</th>
+                    <th scope="col">Field Name</th>
+                    <th scope="col">Field Location</th>
+                    <th scope="col">Extent Size</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="fields-table">
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+
+  </section>
+
+  <!-- Crop section -->
+  <section id="crop-section" class="section">
+    <div class="container-fluid light-style flex-grow-1 container-p-y">
+      <h1 class="text-start section-header animate__animated animate__backInLeft duration-4s">
+        <i class="fa-solid fa-seedling"></i>Crop
+      </h1>
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <!-- Form Section -->
+          <div class="form-card overflow-hidden animate__animated animate__fadeIn">
+            <div class="card-body">
+              <div class="form-group ">
+                <label class="form-label">Common Name</label>
+                <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter common name of the crop" id="crop_common_name">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Scientific Name</label>
+                <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter scientific name of the crop" id="crop_scientific_name">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Crop Image</label>
+                <input type="file" class="form-control mb-4 shadow-none" accept="image/*" id="crop_image">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Category</label>
+                <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter crop category (e.g., Cereal)" id="crop_category">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Season</label>
+                <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter crop season" id="crop_season">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Field Details</label>
+                <select id="field_details" class="form-control mb-4 shadow-none">
+                </select>
+              </div>
+              <div class="text-right mt-3">
+                <button type="button" class="btn btn-warning" onclick="saveCrop()">Save</button>
+                <button type="button" class="btn btn-primary" onclick="updateCrop()">Update</button>
+                <button type="button" class="btn btn-info" onclick="clearFields()">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 col-sm-12">
+          <!-- Table Section -->
+          <div class="container animate__animated animate__fadeIn"">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Crop Image</th>
+                    <th scope="col">Common Name</th>
+                    <th scope="col">Scientific Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Season</th>
+                    <th scope="col">Allocated Field</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="crop-table">
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Staff section -->
+  <section id="staff-section" class="section">
+    <div class="container-fluid light-style flex-grow-1 container-p-y">
+      <h1 class="text-start section-header animate__animated animate__backInLeft duration-4s">
+        <i class="fa-solid fa-people-group"></i>Staff
+      </h1>
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <!-- Form Section -->
+          <div class="form-card overflow-hidden  animate__animated animate__fadeIn">
+            <div class="card-body">
+              <div class="form-group">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter first name" id="first_name">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter last name" id="last_name">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Designation</label>
+                <select class="form-control mb-4 shadow-none" id="designation">
+                  <option value="" selected>Select a Desgination</option>
+                  <option value="ADMINISTRATIVE">Administrative</option>
+                  <option value="FIELD_WORKER">Field Worker</option>
+                  <option value="MANAGER">Manager</option>
+                  <option value="SCIENTIST">Scientist</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Gender</label>
+                <select class="form-control mb-4 shadow-none" id="gender">
+                  <option value="" selected>Select a Gender</option>
+                  <option value="MALE">Male</option>
+                  <option value="FEMALE">Female</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Joined Date</label>
+                <input type="date" class="form-control mb-4 shadow-none" id="joined_date">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Date of Birth</label>
+                <input type="date" class="form-control mb-4 shadow-none" id="dob">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Address</label>
+                <input type="text" class="form-control mb-4 shadow-none" placeholder="Building no or name" id="address">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Contact No.</label>
+                <input type="text" class="form-control mb-4 shadow-none" placeholder="Mobile number" id="contact">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control mb-4 shadow-none" placeholder="Email address" id="email">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Role</label>
+                <select class="form-control mb-4 shadow-none" id="role">
+                  <option value="" selected>Select a Role</option>
+                  <option value="ADMINISTRATIVE">Administrative</option>
+                  <option value="FIELD_WORKER">Field Worker</option>
+                  <option value="MANAGER">Manager</option>
+                  <option value="SCIENTIST">Scientist</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Allocated Field(s)</label>
+                <select id="staff_field_details" class="form-control mb-4 shadow-none">
+                </select>
+              </div>
+              <div class="text-right mt-3">
+                <button type="button" class="btn btn-warning" onclick="saveStaff()">Save</button>
+                <button type="button" class="btn btn-primary" onclick="updateStaff()">Update</button>
+                <button type="button" class="btn btn-info" onclick="clearStaffForm()">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 col-sm-12">
+          <!-- Table Section -->
+          <div class="container animate__animated animate__fadeIn"">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">Designation</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Joined Date</th>
+                    <th scope="col">DOB</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Contact No.</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="staff-table">
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Monitoring log section -->
+  <section id="monitoring-section" class="section">
+    <div class="container-fluid light-style flex-grow-1 container-p-y">
+      <h1 class="text-start section-header animate__animated animate__backInLeft duration-4s">
+        <i class="fas fa-clipboard-list f-left"></i>Monitoring Logs
+      </h1>
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <!-- Form Section -->
+          <div class="form-card overflow-hidden  animate__animated animate__fadeIn">
+            <div class="card-body">
+              <div class="form-group">
+                <label class="form-label">Log Date</label>
+                <input type="date" class="form-control mb-4 shadow-none" id="log_date">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Log Details / Observation</label>
+                <textarea class="form-control mb-4 shadow-none" placeholder="Enter observation details"
+                  rows="3" id="log_desc"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Observed Image</label>
+                <input type="file" class="form-control mb-4 shadow-none" accept="image/*" id="log_image">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Relevant Field(s)</label>
+                <select class="form-control mb-4 shadow-none" id="log_field_details">
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Relevant Crop(s)</label>
+                <select class="form-control mb-4 shadow-none" id="log_crop_details">
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Relevant Staff Member(s)</label>
+                <select class="form-control mb-4 shadow-none" id="log_staff_details">
+                </select>
+              </div>
+              <div class="text-right mt-3">
+                <button type="button" class="btn btn-warning" onclick="saveLog()">Save</button>
+                <button type="button" class="btn btn-warning" onclick="updateLog()">Update</button>
+                <button type="button" class="btn btn-info" onclick="clearLogForm()">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 col-sm-12">
+          <!-- Table Section -->
+          <div class="container animate__animated animate__fadeIn"">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Log Date</th>
+                    <th scope="col">Log Details</th>
+                    <th scope="col">Observed Image</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="log-table">
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vehicle section -->
+  <section id="vehicle-section" class="section">
+    <div class="container-fluid light-style flex-grow-1 container-p-y">
+      <h1 class="text-start section-header animate__animated animate__backInLeft duration-4s">
+        <i class="fas fa-truck f-left"></i>Vehicle
+      </h1>
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <!-- Form Section -->
+          <div class="form-card overflow-hidden animate__animated animate__fadeIn">
+            <div class="card-body">
+              <div class="form-group ">
+                <label class="form-label">License Plate Number</label>
+                <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter license plate number" id="license_plate">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Vehicle Category</label>
+                <select class="form-control mb-4 shadow-none" id="category">
+                  <option value="" selected>Select Category</option>
+                  <option value="van">Van</option>
+                  <option value="truck">Truck</option>
+                  <option value="car">Car</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Fuel Type</label>
+                <select class="form-control mb-4 shadow-none" id="fuel_type">
+                  <option value="" selected>Select Fuel Type</option>
+                  <option value="diesel">Diesel</option>
+                  <option value="petrol">Petrol</option>
+                  <option value="electric">Electric</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Status</label>
+                <select class="form-control mb-4 shadow-none" id="status">
+                  <option value="" selected>Select Status</option>
+                  <option value="AVAILABLE">Available</option>
+                  <option value="UNAVAILABLE">Unavailable</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Allocated Staff Member</label>
+                <select class="form-control mb-4 shadow-none" id="vehicle_staff_details">
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Remarks</label>
+                <textarea class="form-control mb-4 shadow-none" placeholder="Enter remarks" rows="3" id="remarks"></textarea>
+              </div>
+              <div class="text-right mt-3">
+                <button type="button" class="btn btn-warning" onclick="saveVehicle()">Save</button>
+                <button type="button" class="btn btn-primary" onclick="updateVehicle()">Update</button>
+                <button type="button" class="btn btn-info" onclick="clearVehicleForm()">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8 col-sm-12">
+          <!-- Table Section -->
+          <div class="container animate__animated animate__fadeIn"">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">License Plate Number</th>
+                    <th scope="col">Vehicle Category</th>
+                    <th scope="col">Fuel Type</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Remarks</th>
+                    <th scope="col">Staff</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="vehicle-table">
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipment section -->
+  <section id="equipment-section" class="section">
+    <div class="container-fluid light-style flex-grow-1 container-p-y">
+      <h1 class="text-start section-header animate__animated animate__backInLeft duration-4s">
+          <i class="fas fa-trowel f-left"></i>Equipment
+      </h1>
+      <div class="row">
+          <div class="col-md-4 col-sm-12">
+              <!-- Form Section -->
+              <div class="form-card overflow-hidden animate__animated animate__fadeIn">
+                  <div class="card-body">
+                      <div class="form-group ">
+                          <label class="form-label">Name</label>
+                          <input type="text" class="form-control mb-4 shadow-none" placeholder="Enter equipment name" id="equipment_name">
+                      </div>
+                      <div class="form-group">
+                          <label class="form-label">Type</label>
+                          <select class="form-control mb-4 shadow-none" id="equipment_type">
+                              <option value="" selected>Select Equipment Type</option>
+                              <option value="ELECTRICAL">Electrical</option>
+                              <option value="MECHANICAL">Mechanical</option>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          <label class="form-label">Status</label>
+                          <select class="form-control mb-4 shadow-none" id="equipment_status">
+                              <option value="" selected>Status</option>
+                              <option value="AVAILABLE">Available</option>
+                              <option value="UNAVAILABLE">Unavailable</option>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          <label class="form-label">Assigned Staff</label>
+                          <select class="form-control mb-4 shadow-none" id="equip_staff_details">
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          <label class="form-label">Assigned Field</label>
+                          <select class="form-control mb-4 shadow-none" id="equip_field_details">
+                          </select>
+                      </div>
+                      <div class="text-right mt-3">
+                        <button type="button" class="btn btn-warning" onclick="saveEquipment()">Save</button>
+                        <button type="button" class="btn btn-primary" onclick="updateEquipment()">Update</button>
+                        <button type="button" class="btn btn-info" onclick="clearEquipForm()">Cancel</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-md-8 col-sm-12">
+              <!-- Table Section -->
+              <div class="container animate__animated animate__fadeIn"">
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                  <th scope="col">Name</th>
+                                  <th scope="col">Type</th>
+                                  <th scope="col">Status</th>
+                                  <th scope="col">Assigned Staff</th>
+                                  <th scope="col">Assigned Staff</th>
+                                  <th scope="col">Actions</th>
+                              </tr>
+                          </thead>
+                          <tbody id="equipment-table">
+                             
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </section>
+  <!-- jquery -->
+  <script src="/Green-Shadow-front-end/assets/lib/jquery-3.7.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- sweet alert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- login js -->
+  <script src="../Green-Shadow-front-end/js/login.js"></script>
+  <!-- script js -->
+  <script src="/Green-Shadow-front-end/js/script.js"></script>
+  <!-- Controllers -->
+   <script src="/Green-Shadow-front-end/controllers/UserController.js"></script>
+   <script src="/Green-Shadow-front-end/controllers/Controller.js"></script>
+   <script src="/Green-Shadow-front-end/controllers/FieldController.js"></script>
+   <script src="/Green-Shadow-front-end/controllers/CropController.js"></script>
+   <script src="/Green-Shadow-front-end/controllers/StaffController.js"></script>
+   <script src="/Green-Shadow-front-end/controllers/LogController.js"></script>
+   <script src="/Green-Shadow-front-end/controllers/VehicleController.js"></script>
+   <script src="/Green-Shadow-front-end/controllers/EquipmentController.js"></script>
+</body>
+
+</html>
